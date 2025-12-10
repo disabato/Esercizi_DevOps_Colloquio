@@ -10,7 +10,7 @@ services:
       MYSQL_DATABASE: database
 
   web:
-    image: "php:8.1-apache"
+    build: .
     ports:
       - "8080:80"
     volumes:
