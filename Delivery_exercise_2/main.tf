@@ -19,7 +19,7 @@ provider "proxmox" {
 
 
 resource "proxmox_virtual_environment_vm" "ubuntu_vm" {
-  name            = "test-ubuntu"
+  name            = "test-ubuntu-${count.index}"
   description     = "Test Ubuntu VM"
   node_name       = var.proxmox_node_name
   count           = var.ubuntu_vm_count
