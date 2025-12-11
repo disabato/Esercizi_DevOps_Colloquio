@@ -29,3 +29,18 @@ variable "ubuntu_vm_count" {
   type    = number
   default = 3
 }
+
+variable "ubuntu_vm_size" {
+  type    = number
+  default = 5
+}
+
+variable "ubuntu_vm_memory" {
+  type    = number
+  default = 1
+}
+
+variable "ubuntu_vm_cores" {
+  type    = number
+  default = 1
+}

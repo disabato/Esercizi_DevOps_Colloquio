@@ -38,23 +38,23 @@ resource "proxmox_virtual_environment_vm" "ubuntu_vm" {
   }
 
   cpu {
-    cores = 2
+    cores = var.ubuntu_vm_cores
   }
 
   memory {
-    dedicated = 2048
+    dedicated = var.ubuntu_vm_memory * 1024
   }
 
   disk {
     import_from = proxmox_virtual_environment_download_file.ubuntu_cloud_image.id
     interface   = "virtio0"
-    size        = 20
+    size        = var.ubuntu_vm_size
   }
 }
 
 resource "proxmox_virtual_environment_download_file" "ubuntu_cloud_image" {
   content_type = "import"
-  datastore_id = "local-lvm"
+  datastore_id = "local"
   node_name    = var.proxmox_node_name
   url          = "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img"
   file_name    = "ubuntu-jammy-server-cloudimg-amd64.qcow2"
