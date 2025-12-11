@@ -22,6 +22,7 @@ resource "proxmox_virtual_environment_vm" "ubuntu_vm" {
   name            = "test-ubuntu"
   description     = "Test Ubuntu VM"
   node_name       = var.proxmox_node_name
+  count           = var.ubuntu_vm_count
   stop_on_destroy = true
 
   initialization {
