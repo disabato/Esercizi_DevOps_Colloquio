@@ -24,3 +24,8 @@ variable "ubuntu_vm_username" {
 variable "proxmox_node_name" {
   type = string
 }
+
+variable "ubuntu_vm_count" {
+  type    = number
+  default = 3
+}
