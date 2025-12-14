@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mysql-deploy
+  name: mysql-deploy
+spec:
+  replicas: {{ .Values.mysqlReplicaCount }}
+  selector:
+    matchLabels:
+      app: mysql-deploy
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: mysql-deploy
+    spec:
+      containers:
+      - image: mysql:8.0-debian
+        name: mysql
+        ports:
+        - containerPort: 3306
+        envFrom:
+        - secretRef:
+            name: mysql-secret
+        resources: {}
+status: {}

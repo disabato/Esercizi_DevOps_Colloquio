@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: php-deploy
+  name: php-deploy
+spec:
+  replicas: {{ .Values.phpReplicaCount }}
+  selector:
+    matchLabels:
+      app: php-deploy
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: php-deploy
+    spec:
+      containers:
+      - image: raffaele99/delivery_exercise_1:latest
+        name: delivery-exercise-1-m7rtv
+        ports:
+        - containerPort: 80
+        envFrom:
+        - secretRef:
+            name: mysql-secret
+        resources: {}
+status: {}

@@ -1,0 +1,3 @@
+phpReplicaCount: 1
+phpServicePort: 8080
+mysqlReplicaCount: 1
