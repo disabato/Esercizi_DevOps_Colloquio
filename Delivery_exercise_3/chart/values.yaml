@@ -1,3 +1,8 @@
 phpReplicaCount: 1
 phpServicePort: 8080
 mysqlReplicaCount: 1
+mysqlDatabase: datatabase
+mysqlHost: mysql-service:3306
+mysqlPassword: password
+mysqlRootPassword: password
+mysqlUser: user
